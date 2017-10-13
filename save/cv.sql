@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 06 oct. 2017 à 12:37
+-- Généré le :  ven. 13 oct. 2017 à 16:05
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -31,9 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `t_competences` (
   `id_competence` int(3) NOT NULL,
   `competence` varchar(30) NOT NULL,
-  `c_niveau​` int(3) NOT NULL,
+  `c_niveau` int(3) NOT NULL,
   `utilisateur_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `t_competences`
+--
+
+INSERT INTO `t_competences` (`id_competence`, `competence`, `c_niveau`, `utilisateur_id`) VALUES
+(6, 'CSS', 2, 1),
+(8, 'HTML5', 1, 0),
+(9, 'PHP', 1, 0),
+(14, 'jQuery', 1, 1),
+(15, 'JAVASCRIPT', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -109,11 +120,11 @@ CREATE TABLE `t_titre_cv​` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `t_utilisateur`
+-- Structure de la table `t_utilisateurs`
 --
 
-CREATE TABLE `t_utilisateur` (
-  `id_utilisateur​` int(3) NOT NULL,
+CREATE TABLE `t_utilisateurs` (
+  `id_utilisateur` int(3) NOT NULL,
   `prenom` varchar(30) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -133,10 +144,10 @@ CREATE TABLE `t_utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='table des utilisateurs ';
 
 --
--- Déchargement des données de la table `t_utilisateur`
+-- Déchargement des données de la table `t_utilisateurs`
 --
 
-INSERT INTO `t_utilisateur` (`id_utilisateur​`, `prenom`, `nom`, `email`, `telephone`, `mdp`, `pseudo`, `avatar`, `age`, `date_naissance​`, `sexe`, `etat_civil`, `adresse`, `code_postal`, `ville`, `pays`, `site_web​`) VALUES
+INSERT INTO `t_utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `telephone`, `mdp`, `pseudo`, `avatar`, `age`, `date_naissance​`, `sexe`, `etat_civil`, `adresse`, `code_postal`, `ville`, `pays`, `site_web​`) VALUES
 (1, 'Johan', 'Da Silva', 'johan.dasilva@lepoles.com', 0781535151, 'admin', 'admin', '', 25, '1992-03-08', 'M', 'M', '354, rue d\'Estienne d\'orves', 92700, 'Colombes', 'France', '');
 
 --
@@ -180,10 +191,10 @@ ALTER TABLE `t_titre_cv​`
   ADD PRIMARY KEY (`id_titre_cv`);
 
 --
--- Index pour la table `t_utilisateur`
+-- Index pour la table `t_utilisateurs`
 --
-ALTER TABLE `t_utilisateur`
-  ADD PRIMARY KEY (`id_utilisateur​`);
+ALTER TABLE `t_utilisateurs`
+  ADD PRIMARY KEY (`id_utilisateur`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -193,7 +204,7 @@ ALTER TABLE `t_utilisateur`
 -- AUTO_INCREMENT pour la table `t_competences`
 --
 ALTER TABLE `t_competences`
-  MODIFY `id_competence` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_competence` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT pour la table `t_experiences​`
 --
@@ -220,10 +231,10 @@ ALTER TABLE `t_realisations`
 ALTER TABLE `t_titre_cv​`
   MODIFY `id_titre_cv` int(3) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `t_utilisateur`
+-- AUTO_INCREMENT pour la table `t_utilisateurs`
 --
-ALTER TABLE `t_utilisateur`
-  MODIFY `id_utilisateur​` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+ALTER TABLE `t_utilisateurs`
+  MODIFY `id_utilisateur` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
