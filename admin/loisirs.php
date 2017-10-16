@@ -19,23 +19,7 @@
 
     } // ferme le if isset
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"  href="css/styleadmin.css">
-    <?php
-    $sql = $pdo->query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-    $ligne_utilisateurs = $sql -> fetch();
-    ?>
-    <title>Admin : <?= $ligne_utilisateurs['pseudo']; ?></title>
-</head>
-<body>
-    <h1>Admin : <?= $ligne_utilisateurs['prenom'] . ' ' . $ligne_utilisateurs['nom'];  ?></h1>
-    <p>texte</p>
-    <hr>
+<?php include('index.php');?>
     <?php
     $sql = $pdo->prepare("SELECT * FROM t_loisirs WHERE utilisateur_id='1'");
     $sql -> execute();
@@ -43,7 +27,8 @@
     ?>
     <div    >
     <h2>Il y a  <?= $nbr_loisirs; ?> loisirs</h2>
-    <table border="3" style="border-collapse:collapse;">
+    <div class="container">
+    <table class="table" border="3" style="border-collapse:collapse;">
         <tr>
             <th>Loisirs</th>
             <th>Suppression</th>
@@ -53,11 +38,12 @@
         <tr>
             <?php while($ligne_loisir = $sql->fetch()) { ?>
                 <td><?= $ligne_loisir['loisirs']; ?></td>
-                <td class = "supr"><a href="loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>">Delete</a></td>
-                <td class = "modif"><a href="modif_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>">Modifier</a></td>
+                <td class = "supr"><a href="loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>
+                <td class = "modif"><a href="modif_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></button></a></td>
             </tr>
         <?php } ?>
     </table>
+    </div>
     <hr>
     <h3>Insertion d'un loisir</h3>
     <form action="loisirs.php" method="post">

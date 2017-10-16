@@ -1,42 +1,16 @@
 @charset "UTF-8";
 /*CSS Document admin Johan*/
 
-table{
-    border-radius: 7px;
-    box-shadow: 11px 11px 4px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border: 0px;
-}
 
-th{
-    padding: 10px;
+/*DEBUT DE LA NAV*/
+.navbar {
+    background: #840404;
+    border-radius: 0;
 }
-
-td{
-    padding: 15px;
+/*FIN DE LA NAV*/
+.supr {
+    width: 50px;
 }
-
-a{
-    font-size: 17px;
-    text-decoration: none;
-    color: #000249;
-}
-
-.modif a:hover {
-    color : black;
-}
-.modif:hover {
-
-     transition : 0.5s;
-     background :rgba(0, 255, 20, 0.5);
-}
-.supr img {
-    width: 100%;
-}
-.supr a:hover {
-    color : white;
-}
-.supr:hover {
-    transition : 0.5s;
-    background :rgba(255, 0, 0, 0.8);
+.modif {
+    width: 50px;
 }
