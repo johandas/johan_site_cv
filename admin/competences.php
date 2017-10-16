@@ -26,6 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"  href="css/styleadmin.css">
     <?php
     $sql = $pdo->query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
     $ligne_utilisateurs = $sql -> fetch();
@@ -41,6 +42,7 @@
     $sql -> execute();
     $nbr_competences = $sql->rowCount();
     ?>
+    <div    >
     <h2>Il y a  <?= $nbr_competences; ?> compétences</h2>
     <table border="3" style="border-collapse:collapse;">
         <tr>
@@ -54,8 +56,8 @@
             <?php while($ligne_competences = $sql->fetch()) {      ?>
                 <td><?= $ligne_competences['competence']; ?></td>
                 <td><?= $ligne_competences['c_niveau']; ?></td>
-                <td><a href="competences.php?id_competence=<?= $ligne_competences['id_competence']; ?>">Supprimer</a></td>
-                <td><a href="modif_competence.php?id_competence=<?= $ligne_competences['id_competence']; ?>">Modifier</a></td>
+                <td class="supr"><a href="competences.php?id_competence=<?= $ligne_competences['id_competence']; ?>">Supprimer</a></td>
+                <td class="modif"><a href="modif_competence.php?id_competence=<?= $ligne_competences['id_competence']; ?>">Modifier</a></td>
 
             </tr>
         <?php } ?>
